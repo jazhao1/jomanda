@@ -1,0 +1,133 @@
+
+.card {
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    width: 90%;
+    font-family: arial;
+    margin: 0px auto;
+    position: relative;
+}
+
+
+#card_profile_pic {
+    float: left;
+    margin: 15px;
+    margin: 25px 15px 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card_identifer_section {
+    overflow: hidden;
+    padding: 15px 25px 0px 25px;
+    position: relative;
+    min-height: 120px;
+}
+
+.card_button_section{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 23px 10px;
+}
+.button1 {
+    margin: 5px 20px;
+    padding: 5px 20px;
+    width: 200px;
+    height: 35px;
+    font-size: 120%;
+}
+
+.card #card_name {
+    margin-bottom: 0px;
+    font-size: 280%;
+}
+
+.card #card_nickname {
+    font-size: 150%;
+}
+
+.card_info_section {
+    padding: 0px 25px 0px 25px;
+    min-height: 100px;
+    overflow: hidden;
+}
+
+.card_nav_section {
+    width: 100%;
+    height: 60px;
+    display: -webkit-flex;
+    justify-content: center;
+    
+}
+
+.card_nav_tab{
+    padding: 0px 15px 7px;
+    font-size: 18px;
+    letter-spacing: .75px;
+    font-weight: bold;
+    text-align: center;
+    float: right;
+    color: #4f6b7f
+}
+
+.card_current_tab {
+    padding: 0px 15px 7px;
+    font-size: 18px;
+    letter-spacing: .75px;
+    font-weight: bold;
+    text-align: center;
+    float: right;
+    color: #4dd0e5;
+    border-bottom: 5px solid #9AE3F5;
+    overflow: hidden;
+}
+
+.card_nav_tab:hover {
+    transform: scaleX(1);
+    color: #4dd0e5;
+    border-bottom: 5px solid #9AE3F5;
+    transition: all 0.2s ease-in-out 0s;
+    text-decoration: none;
+
+}
+
+.card_comment_section {
+    max-width: 70%;
+    margin: 0px auto;
+}
+.comment_form {
+    overflow: hidden;
+}
+
+.line-clamp {
+  overflow : hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;  
+  white-space: pre-line;
+}
+
+hr { 
+    margin: 5px 0px 10px 0px;
+}
+
+/*.card_button_section {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom:  13px;
+}*/
+
+.wallpaper {
+    height: 370px;
+    width: 100%;
+    /*background-color: white;*/
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: -63px;
+    margin-top: 0px;
+    z-index: -1;
+}

@@ -1,0 +1,17 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            <a href="{{ url_for('illust', illustName=illust.name) }}">
+                <img id="card_profile_pic" src="{{ illust.get_profile_pic() }}" width="70" height="70" style="border-radius: 50%; border-style: solid; border-width: 2px; border-color: white;" ></td>
+                
+            </a>
+        </td>
+        <td>
+            <a href="{{ url_for('illust', illustName=illust.name) }}">
+                {{ illust.name }}
+            </a>
+            <br>
+            Twitter Follower Count: {{ illust.get_count("twitter") }}
+        </td>
+    </tr>
+</table>

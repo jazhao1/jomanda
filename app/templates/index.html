@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/landing.css')}}">
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+<!-- some jquery-->
+    <script>
+        $(document).ready(function() {
+            // Transition effect for navbar 
+            $(window).scroll(function() {
+              // checks if window is scrolled more than 500px, adds/removes solid class
+              if($(this).scrollTop() > 870) { 
+                  $('.navbar').addClass('solid');
+              } else {
+                  $('.navbar').removeClass('solid');
+              }
+            });
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-full">
+    <header class="oreHeader" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(static/assets/pics/sao.png);">
+        <div class="center_nav1">
+            <h1 class="oreh1">Jomanda</h1>
+            <h2 class="oreh2"> Centralized Illustrator Following </h2>
+            <br>
+            <div class="button_section">
+                <a href="{{ url_for('login') }}"><button class="btn btn-large">Login</button></a>
+                <a href="{{ url_for('register') }}"><button id="grey" class="btn btn-large">Sign Up</button></a>
+            </div>
+        </div>
+    </header>
+    </div>﻿
+{% endblock %}

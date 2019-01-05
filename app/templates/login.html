@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/landing.css')}}">
+{% endblock %}
+
+{% block content %}
+    
+
+    <div class="container-full">
+        <header class="oreHeader" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(static/assets/pics/sao.png);">
+            <div class="center_nav2">
+                <h1 class="oreh1">Sign In</h1>
+                <b+
+                r>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                {# application content needs to be provided in the app_content block #}
+                {% block app_content %}{% endblock %}
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ wtf.quick_form(form) }}
+                    </div>
+                </div>
+                <br>
+                <br>
+                <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+                <p>Forgot Password?
+                <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+                </p>
+
+                
+                
+                
+            </div>
+        </header>
+    </div>﻿
+
+{% endblock %}

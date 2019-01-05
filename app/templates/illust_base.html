@@ -1,0 +1,137 @@
+{% block app_content %}
+    <link rel="stylesheet" type="text/css" href="../static/css/button1.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/profile_card.css">
+    {% if illust.get_banner() %}
+        <div class="wallpaper" style="background-image: url( {{ illust.get_banner() }});"></div>
+    {% endif %}
+    <div class="card">
+
+        <img id="card_profile_pic" src="{{ illust.get_profile_pic() }}" width="200" height="200" ></td>
+
+        <div class="card_identifer_section">
+            <p id="card_name"> {{ illust.name }}</p>
+            {% if illust.twitter_handle %}
+                <a href="https://twitter.com/{{ illust.twitter_handle }}"><img src="../static/assets/pics/twitter_icon.png" width="32" height="32" style="margin: 0px 1.5px;"></a>
+            {% endif %}
+            {% if illust.pixiv_id %}
+                <a href="https://www.pixiv.net/member.php?id={{ illust.pixiv_id}}"><img src="../static/assets/pics/pixiv_icon.png" width="32" height="32" style="margin: 0px 1.5px;"></a>
+            {% endif %}
+            {% if illust.DA_username %}
+                <a href="https://www.deviantart.com/{{ illust.DA_username }}"><img src="../static/assets/pics/DA_icon.png" width="32" height="32" style="margin: 0px 1.5px;"></a>
+            {% endif %}
+            {% if illust.tumblr_username %}
+                <a href="https://{{ illust.tumblr_username }}.tumblr.com"><img src="../static/assets/pics/tumblr_icon.png" width="32" height="32" style="margin: 0px 1.5px;"></a>
+            {% endif %}
+
+        </div>
+        
+        <div class="card_button_section"> 
+            {% if current_user.is_anonymous or not current_user.is_following_artist(illust) %}
+                <a href="{{ url_for('follow_artist', name=illust.name) }}"><button class="button1" value="Redirect" method="post">Follow</button></a>
+            {% else %}
+                <a href="{{ url_for('unfollow_artist', name=illust.name) }}"><button class="button1" value="Redirect" method="post">Unfollow</button></a>
+            {% endif %}
+            <br>
+            <a href="{{ url_for('edit_artist_profile', name=illust.name) }}"><button class="button1" value="Redirect" method="post">Add Websites / Edit</button></a>
+        </div>
+
+        <hr> 
+        <div class="card_info_section">
+            
+            {% if illust.about_me %}
+                <p class="line-clamp">{{ illust.about_me }}</p>
+            {% endif %}
+
+            {% if "country" in profile_data %}
+                Country: {{ profile_data["country"] }} <br>
+            {% endif %}
+
+            {% if "gender" in profile_data %}
+                Gender: {{ profile_data["gender"] }} <br>
+                
+            {% endif %}
+
+            {% if "birth" in profile_data %}
+                Birthday: {{ profile_data["birth"] }} <br>
+            {% endif %}                
+        
+
+        </div>
+        
+        <hr>
+        <div class="card_nav_section">
+            {% if current_tab == "general" %}
+                <span class="card_current_tab"> General <br> Statistics</span> 
+            {% else %}
+                <a href="{{ url_for('illust', illustName=illust.name) }}" class="card_nav_tab" ><span> General <br> Statistics</span></a> 
+            {% endif %}
+
+            <!-- #################### Twitter #################### -->
+
+            {% if current_tab == "twitter" %}
+                <span class="card_current_tab"> 
+                    Twitter <br> 
+                    {{ illust.get_count("twitter") }} 
+                </span> 
+            {% else %}
+                <a href="{{ url_for('illust_twitter', illustName=illust.name) }}" class="card_nav_tab"><span>
+                    Twitter <br> 
+                    {{ illust.get_count("twitter") }}
+                </span></a> 
+            {% endif %}
+
+            <!-- #################### Pixiv #################### -->
+
+            {% if current_tab == "pixiv" %}
+                <span class="card_current_tab"> Pixiv <br> 
+                    <!-- {{ illust.get_count("pixiv") }} -->
+                </span>
+            {% else %}
+                <a href="{{ url_for('illust_pixiv', illustName=illust.name) }}" class="card_nav_tab"><span> Pixiv <br>
+                    <!-- {{ illust.get_count("pixiv") }}  -->
+                </span> </a> 
+            {% endif %}
+
+            <!-- #################### DA #################### -->
+            {% if current_tab == "DA" %}
+                <span class="card_current_tab"> Deviant Art <br>
+                    {{ illust.get_count("DA") }} 
+                </span>
+            {% else %}
+                <a href="{{ url_for('illust_da', illustName=illust.name) }}" class="card_nav_tab"><span> Deviant Art <br>
+                    {{ illust.get_count("DA") }} 
+                </span></a> 
+            {% endif %}
+
+            {% if current_tab == "tumblr" %}
+                <span class="card_current_tab"> Tumblr <br>
+                    {{ illust.get_count("tumblr") }} 
+                </span>
+            {% else %}
+                <a href="{{ url_for('illust_tumblr', illustName=illust.name) }}" class="card_nav_tab"><span> Tumblr <br> 
+                    {{ illust.get_count("tumblr") }} 
+                </span></a> 
+            {% endif %}
+
+            {% if current_tab == "followers" %}
+                <span class="card_current_tab"> Followers <br> 
+                    {{ illust.get_count("followers") }} 
+                </span>
+            {% else %}
+                <a href="{{ url_for('illust_followers', illustName=illust.name) }}" class="card_nav_tab"><span> Followers </span> <br> 
+                    {{ illust.get_count("followers") }} 
+                </span></a>   
+            {% endif %}   
+
+            {% if current_tab == "comments" %}
+                <span class="card_current_tab"> Comments <br>
+                    {{ illust.get_count("comments") }}
+                </span>
+            {% else %}
+                <a href="{{ url_for('illust_comments', illustName=illust.name) }}" class="card_nav_tab" ><span> Comments <br>
+                    {{ illust.get_count("comments") }}
+                </span></a>
+            {% endif %}
+        </div>    
+    </div>
+{% endblock %}

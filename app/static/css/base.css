@@ -1,0 +1,101 @@
+.navbar-default {
+  background-color: #3a3e5b;
+}
+
+.navbar-default .navbar-nav li a, .navbar-default .navbar-brand {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+
+
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
+
+.navbar-default .navbar-nav li a:hover {
+  color: white;
+}
+
+.navbar-default .navbar-nav li a::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.navbar-default .navbar-nav li a:hover::before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: #ffffff;
+  height: 50vh;
+  width: 940px
+}
+
+.testimonial-group > .row > .col-md-6 {
+  display: inline-block;
+  margin : auto;
+  float: none;
+}
+
+.testimonial-group > .row > .slide {
+  display: inline-block;
+}
+
+/* Decorations */
+.col-md-6 { 
+  color: #fff; 
+  font-size: 48px; 
+  padding: 20px 0px 20px 0px; 
+  background-color:#ffffff; 
+}
+
+.oreh1 {
+  color: white;
+}
+
+.oreHeader {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: -50px; /* this covers the footer*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.oreHeader p .btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 10px;
+  font-size: 1.2em;
+}
+.oreHeader p .btn:hover {
+  color: white;
+  border-color: white;
+}
+
+
+.banner {
+  height: 170px;
+  width: 100%;
+  overflow: hidden;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-attachment: fixed;
+}

@@ -1,0 +1,106 @@
+.followings_list {
+	position: relative;
+	background-color:  #f4f4f4;
+	border-radius: 5px;
+}
+
+#current_following_tab {
+	background-color:  #f4f4f4;
+}
+
+
+.followings_nav ul {
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 5px 5px 0px 0px;
+
+    /*box-shadow: 0.5px 0.5px 0px 0.5px rgba(0, 0, 0, 0.2);*/
+}
+
+.followings_nav li{
+	float: left;
+	font-size: 20px;
+    display: block;
+    color: #4a5e7a;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.followings_nav li a{
+    color: #4a5e7a;
+    text-decoration: none;
+}
+
+.followings_nav li a:hover{
+	color: #4CCCDC;
+	transition: 0.2s
+}
+
+.mini_card {
+	background-color: white;
+	position: relative;
+	display: inline-block;
+	height: 150px;
+	width: 330px;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+	margin: 15px 10px;
+	border-radius: 10px;
+	float: left;
+}
+
+
+#horizontal-list {
+	overflow:hidden;
+    list-style-type: none;
+}
+
+
+
+#profile_pic {
+	position: absolute;
+	border-radius: 50%;
+	margin: 5px;
+	bottom: 5%;
+	left: 2.5%;
+}
+
+.profile_section1{
+	overflow: hidden;
+	width: 47.5%;
+	height: 100%;
+	/*background-color: red;*/
+}
+
+.profile_section2 {
+	overflow: hidden;
+	width: 52.5%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	/*padding: 0px 10px;*/
+	/*background-color: yellow;*/
+}
+
+#profile_info {
+	font-family: "Arial", Times, serif;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: left;
+	padding: 7% 8% 3% 8%;
+}
+
+.button1 {
+	width: 80%;
+	height: 40px;
+	margin: 10px;
+	font-size: 20px;
+}
+
+hr {
+	margin: 0px 0px 10px 0px;
+}
+
+
+

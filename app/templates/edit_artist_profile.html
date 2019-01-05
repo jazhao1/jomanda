@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/mainUI.css')}}">
+{% endblock %}
+
+{% block app_content %}
+    {% if title %}
+        <h1>{{title}}</h1>
+    {% endif %}
+
+
+    <p> *Add artist's social in the following fields to update artist information. For example, adding their twitter account will update their twitter Following Count and add their twitter wall onto this website. Adding their Pixiv or Deviantart will update their following count respectively, birthday, gender, and/or country. </p>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <h4>Artist Info</h4>
+                
+                {{ wtf.form_field(form.name) }}
+
+                <span id="about me" style="height: 100px;"> {{ wtf.form_field(form.other_info) }} </span>
+                
+                <hr>
+                <h4>Websites</h4>
+                {{ wtf.form_field(form.twitter_handle) }}
+                {{ wtf.form_field(form.pixiv_id) }}
+                {{ wtf.form_field(form.DA_username) }}
+                {{ wtf.form_field(form.tumblr_username) }}
+
+                {% if is_new_profile %}
+                    {{ wtf.form_field(form.add) }}
+                {% else %} 
+                    {{ wtf.form_field(form.update) }}
+                {% endif %}
+
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+{% endblock %}

@@ -1,0 +1,26 @@
+.content {
+	position: relative;
+	min-width: 100%;
+	/*background-color: white ;*/
+	padding: 15px 10px;
+	/*background-color: red;*/
+}
+
+#twitter_box {
+	/*padding: 10px;*/
+	/*background-color: pink;*/
+	float: left;
+	right: 0;
+	
+	max-width: 50%;
+	margin: 15px 10px;
+}
+
+#twitter_stats {
+	float: right;
+	background-color: white;
+	padding: 10px 15px;
+	height: 200px;
+    width: 45%;
+    margin: 15px;
+}

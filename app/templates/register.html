@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/landing.css')}}">
+{% endblock %}
+
+{% block content %}
+   <div class="container-full">
+        <header class="oreHeader" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(static/assets/pics/sao.png);">
+            <div class="center_nav3">
+                <h1 class="oreh1">Register</h1>
+                <p><small> * Field Required</small></p>
+                <div class="row">
+                    <div class="col-md-4">
+                        {{ wtf.quick_form(form) }}
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+    </div>
+{% endblock %}

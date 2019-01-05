@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/mainUI.css')}}">
+{% endblock %}
+
+{% block app_content %}
+	<link rel="stylesheet" type="text/css" href="../static/css/followings.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/button1.css">
+    <div class="followings_list">
+    	<div class="followings_nav">
+    		<ul>
+                <li><a class="active" href="{{ url_for('following', username=user.username) }}">Following</li>
+                <li ><a class="active" href="{{ url_for('followers', username=user.username) }}">Followers</a></li>
+
+                <li id="current_following_tab">Artist Following</a></li>
+    		</ul>
+    	</div>
+    	<ul id="horizontal-list">
+    		{% for illust in followings %}
+    			<li>
+    				<!-- <input name="{{ user.username }}" value="{{ user.username }}"type="checkbox"> -->
+    				
+					<a href="{{ url_for('illust', illustName=illust.name) }}">
+						<div class="mini_card">
+							<div class="profile_section1">
+								<!-- {{ user.username }} -->
+								<img id="profile_pic" src="{{ illust.get_profile_pic() }}" width="125" height="125" >
+							</div>
+
+							<div class="profile_section2">
+								<p id="profile_info">{{ illust.name }}</p>
+								<hr>
+								{% if current_user.is_following_artist(illust) %}
+									<a href="{{ url_for('unfollow_artist', name=illust.name) }}"><button class="button1" value="Redirect" method="post">Unfollow</button></a>
+								{% else %}
+									<a href="{{ url_for('follow_artist', name=illust.name) }}"><button class="button1" value="Redirect" method="post">Follow</button></a>
+								{% endif %}
+
+							</div>
+							
+						</div>
+					</a>
+    				
+    			</li>	
+    		{% endfor %}
+    	</ul>
+	    <!-- <input type="submit" value="Remove"> -->
+
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" type= "text/css" href="{{url_for('static', filename='css/mainUI.css')}}">
+{% endblock %}
+
+{% block app_content %}
+	<link rel="stylesheet" type="text/css" href="../static/css/illust_content.css">
+	{% include 'illust_base.html' %}
+	<div class="content">
+		<div id="twitter_box">
+			{% if illust.twitter_handle %}
+		        <a class="twitter-timeline" style="position: absolute; left: 0;" width= "600px" min-width="350px" height="95vh" href="https://twitter.com/{{ illust.twitter_handle }}" >Tweets by {{ illust.name }}</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		    {% endif %}
+	    </div>
+	    {% if illust.twitter_handle %}
+		    <div id="twitter_stats">
+		    	Twitter Handle: {{ illust.twitter_handle}}
+		    	<hr>
+		    	Followers: <br>
+		    	Following: <br>
+		    	Mutual Followings: <br>
+		    	Fan Followings: <br>
+		    	Tweets: <br>
+		    	Likes: <br>
+		    </div>
+		{% endif %}
+	</div>
+	
+
+{% endblock %}

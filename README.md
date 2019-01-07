@@ -1,7 +1,9 @@
-## JOMANDA: The Beginnings
-Iteration 2.7
+## JOMANDA: The New Art Platform
+Iteration 3.6
 ## TODO
-<s>use MySQL over SQlite</s><br />
-Redirect edit profile back to user page.
+Make pixiv stuff working.
+Rename things to Sachiko.
 
 Website link: https://jomanda.herokuapp.com/
+
+Contributors: [Jacky Zhao](https://github.com/jazhao1) and [Weihua Chen](https://github.com/tenkuunoyoake)
